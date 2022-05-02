@@ -11,7 +11,7 @@
 //to do check of special characters in names...with several first/last names
 
 let authors = [
-    { firstName: "Andreas", lastName: "Neesser" },
+    { firstName: "Andreas", lastName: "Neeser" },
     { firstName: "Anna", lastName: "Ruchat" },
     { firstName: "Arno", lastName: "Camenisch" },
     { firstName: "Barbara", lastName: "Schibli" },
@@ -44,15 +44,17 @@ function createTiles(authors) {
         const imgTag = document.createElement("img");
         const aTag = document.createElement("a");
         const h2Tag = document.createElement("h2");
+        const spanTag = document.createElement("span");
         aTag.href = currentAuthor.link;
         imgTag.src = currentAuthor.imgUrl;
         imgTag.alt = currentAuthor.altText;
-        h2Tag.textContent =
+        spanTag.textContent =
             currentAuthor.firstName + " " + currentAuthor.lastName;
 
         liTag.appendChild(aTag);
         aTag.appendChild(imgTag);
         aTag.appendChild(h2Tag);
+        h2Tag.appendChild(spanTag);
 
         titleList.push(liTag);
         // console.log(titleList);
