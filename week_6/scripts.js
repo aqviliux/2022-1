@@ -62,8 +62,6 @@ function createTiles(authors) {
     return titleList;
 }
 
-console.log(createTiles(authors));
-
 /** create function addTiles to add all tiles to the DOM randomly */
 
 function addTiles(list) {
@@ -90,3 +88,13 @@ function random(list) {
 addTiles(createTiles(authors));
 
 /** add a eventListener on the logo to rebuild the list on click */
+
+function refreshPage() {
+    document.querySelector("main ul").innerHTML = "";
+    addTiles(createTiles(authors));
+    // console.log("refreshing...");
+    // location.reload();
+}
+
+let clickImg = document.querySelector("header > a > img");
+clickImg.addEventListener("click", refreshPage);

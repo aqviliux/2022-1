@@ -47,14 +47,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-}
-
-nav ul {
     display: flex;
-    /* flex-direction: row;
-    flex-wrap: nowrap; */
-    justify-content: end;
-    width: 100%;
 }
 
 nav li a {
@@ -81,13 +74,8 @@ main ul {
     list-style: none;
     margin: 1.2rem;
     padding: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-main ul li {
-    width: 100%;
-    margin-bottom: 1rem;
+    display: grid;
+    gap: 1rem;
 }
 
 main a {
@@ -129,6 +117,54 @@ main a:hover span::after {
     position: absolute;
 }
 
+main li:nth-of-type(1) {
+    grid-area: img1;
+}
+
+main li:nth-of-type(2) {
+    grid-area: img2;
+}
+
+main li:nth-of-type(3) {
+    grid-area: img3;
+}
+
+main li:nth-of-type(4) {
+    grid-area: img4;
+}
+
+main li:nth-of-type(5) {
+    grid-area: img5;
+}
+
+main li:nth-of-type(6) {
+    grid-area: img6;
+}
+
+main li:nth-of-type(7) {
+    grid-area: img7;
+}
+
+main li:nth-of-type(8) {
+    grid-area: img8;
+}
+
+main li:nth-of-type(9) {
+    grid-area: img9;
+}
+
+main li:nth-of-type(10) {
+    grid-area: img10;
+}
+
+main li:nth-of-type(11) {
+    grid-area: img11;
+}
+
+main li:nth-of-type(12) {
+    grid-area: img12;
+}
+
 footer {
     background: #ffffff;
     font-weight: 300;
@@ -147,8 +183,32 @@ footer {
 
 /* min-width 751px, medium screens */
 @media only screen and (min-width: 46.938em) {
+    main ul {
+        grid-template-areas:
+            "img1 img2"
+            "img3 img3"
+            "img3 img3"
+            "img4 img4"
+            "img4 img4"
+            "img5 img6"
+            "img7 img8"
+            "img9 img9"
+            "img9 img9"
+            "img10 img10"
+            "img10 img10"
+            "img11 img12";
+    }
 }
 
 /* min-width 1025px, large screens */
 @media only screen and (min-width: 64.063em) {
+    main ul {
+        grid-template-areas:
+            "img1 img2 img2 img3 img3"
+            "img4 img2 img2 img3 img3"
+            "img5 img5 img6 img6 img7"
+            "img5 img5 img6 img6 img8"
+            "img9 img10 img10 img11 img11"
+            "img12 img10 img10 img11 img11";
+    }
 }
