@@ -13,7 +13,7 @@
 let authors = [
     { firstName: "Andreas", lastName: "Neesser" },
     { firstName: "Anna", lastName: "Ruchat" },
-    { firstName: "Arno", lastName: "Camenish" },
+    { firstName: "Arno", lastName: "Camenisch" },
     { firstName: "Barbara", lastName: "Schibli" },
     { firstName: "Demian", lastName: "Leinhard" },
     { firstName: "Flurina", lastName: "Bader" },
@@ -21,7 +21,7 @@ let authors = [
     { firstName: "Lukas", lastName: "Hartmann" },
     // { firstName: "Marius Daniel", lastName: "Popescu" },
     { firstName: "Marius", lastName: "Popescu" },
-    { firstName: "Reto", lastName: "Heanny" },
+    { firstName: "Reto", lastName: "Haenny" },
     { firstName: "Sandra", lastName: "Kuenzi" },
     { firstName: "Simon", lastName: "Libsig" },
 ];
@@ -45,7 +45,7 @@ function createTiles(authors) {
         const aTag = document.createElement("a");
         const h2Tag = document.createElement("h2");
         aTag.href = currentAuthor.link;
-        imgTag.scr = currentAuthor.imgUrl;
+        imgTag.src = currentAuthor.imgUrl;
         imgTag.alt = currentAuthor.altText;
         h2Tag.textContent =
             currentAuthor.firstName + " " + currentAuthor.lastName;
@@ -64,10 +64,27 @@ console.log(createTiles(authors));
 
 /** create function addTiles to add all tiles to the DOM randomly */
 
-function addTiles(List) {
+function addTiles(list) {
     const ulTag = document.querySelector("main ul");
-    List.forEach((li) => ulTag.appendChild(li));
+    //randomise list firstly
+    //let tempList = random(list);
+    random(list).forEach((li) => ulTag.appendChild(li));
 }
+
+function random(list) {
+    let randomNumber;
+    let tempList = [];
+
+    list.forEach((item) => {
+        do {
+            randomNumber = Math.floor(Math.random() * list.length);
+        } while (tempList[randomNumber] !== undefined);
+
+        tempList[randomNumber] = item;
+    });
+    return tempList;
+}
+
 addTiles(createTiles(authors));
 
 /** add a eventListener on the logo to rebuild the list on click */
